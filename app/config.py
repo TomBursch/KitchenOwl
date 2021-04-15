@@ -8,7 +8,7 @@ from flask_apscheduler import APScheduler
 import os
 
 MIN_FRONTEND_VERSION = 8
-BACKEND_VERSION = 4
+BACKEND_VERSION = 5
 
 app = Flask(__name__)
 
@@ -23,6 +23,7 @@ bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 
 scheduler = APScheduler()
+# enable for debugging jobs: ../scheduler/jobs to see scheduled jobs
 scheduler.api_enabled = False
 scheduler.init_app(app)
 scheduler.start()
